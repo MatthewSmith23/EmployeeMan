@@ -5,25 +5,26 @@ USE employees;
 
 CREATE TABLE department (
   -- CREATE id, name COLUMNS
-  -- MAKE id AS PRIMARY KEY
-  -- YOUR CODE HERE
-
+  id INT auto_increment,
+  department VARCHAR(30),
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE role (
-  -- CREATE id AS INTERGER, title AS VARCHAR, salary AS DECIMAL, deplartment_id AS INTEGER
-  -- MAKE id As PRIMARY KEY
-  -- MAKE department_id AS FOREIGN KEY REFERENCING department TABLE AND
-  -- MAKE AN CONSTRAINT 'ON DELETEN CASCADE' (WITHOUT QUOTES) ON THIS FOREIGN KEY
-  -- YOUR CODE HERE
-
+  id INT auto_increment,
+  title VARCHAR(30),
+  salary DECIMAL(10, 2),
+  department_id INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
 CREATE TABLE employee (
-  -- CREATE COLUMNS, id AS INT, first_name AS VARCHAR, last_name AS VARCHAR, role_id AS INTEGER, AND manager_id AS INT.
-  -- MAKE id As PRIMARY KEY
-  -- MAKE role_id AS FOREIGN KEY REFERENCING role TABLE AND MAKE CONSTRAINT ON DELETE CASCADE ON THIS FOREIGN KEY
-  -- MAKE manager_id AS FOREIGN KEY REFERENCING employee TABLE ITSELF AND MAKE CONSTRAINT ON DELETE SET NULL ON THIS FOREIGN KEY
-  -- YOUR CODE HERE
-
+ id INT auto_increment,
+ first_name VARCHAR(30),
+ last_name VARCHAR(30),
+ role_id INT,
+ manager_id INT,
+ PRIMARY KEY (id),
+ FOREIGN KEY (role_id) REFERENCES role(id)
 );
