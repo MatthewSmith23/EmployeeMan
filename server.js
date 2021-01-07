@@ -15,7 +15,7 @@ function init() {
 }
 
 async function loadMainPrompts() {
-  const { choice } = await prompt([
+  const { choice } = await inquirer.prompt([
     {
       type: "list",
       name: "choice",
